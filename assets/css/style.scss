@@ -155,6 +155,7 @@ body {
       border: 1px #414042 solid;
       gap: 17px;
       margin-left: auto;
+      width: 82px;
     }
   }
 
@@ -363,6 +364,24 @@ body {
 
   &-your-order {
     min-width: 340px;
+  }
+}
+.auten-counter{
+  display: flex;
+  padding: 7px 7px;
+  border: 1px #414042 solid;
+  width: 82px;
+  gap: 1px;
+  &__button{
+    background: none;
+    width: 15px;
+    flex: 0 0 15px;
+    text-align: center;
+  }
+  &__input{
+    width: 100%;
+    flex: 1 1 auto;
+    text-align: center;
   }
 }
 
