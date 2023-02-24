@@ -32,7 +32,7 @@
                             Арт. Т7726290
                         </div>
                         <div class="auten-cart-item__price">
-                            38 940 ₽
+                            <span>38 940</span> ₽
                         </div>
                         <div class="auten-cart-item__params">
                             <div class="auten-cart-item__color" style="background-color: #611e39;"></div>
@@ -83,7 +83,7 @@
                     Промокод
                 </div>
                 <input type="text" class="auten-promo__field">
-                <div class="auten-button inactive1">
+                <div class="auten-button inactive">
                     Применить
                 </div>
             </div>
@@ -95,9 +95,11 @@
             <div class="auten-bonuses">
                 <div class="auten-bonuses__field">
                     <span>Бонусы</span>
-                    <span>700 бонусов</span>
+                    <div>
+                        <span>700</span> бонусов
+                    </div>
                 </div>
-                <div class="auten-button default1">
+                <div class="auten-button">
                     Потратить
                 </div>
             </div>
@@ -268,15 +270,21 @@
             </div>
         </div>
     </main>
-    <div class="auten-input">
-        <div class="auten-input__title">
+    <label class="auten-field">
+        <div class="auten-field__title">
             Поле ввода
         </div>
-        <input type="text" class="auten-input__field">
-        <div class="auten-input__error">
+        <input type="text" class="auten-field__input" placeholder="Ваше имя">
+        <div class="auten-field__error">
             Поле должно быть заполнено
         </div>
-    </div>
+    </label>
+    <label class="auten-radio">
+        <input type="radio" class="auten-radio__input" name="radio" value="0">
+    </label>
+    <label class="auten-radio">
+        <input type="radio" class="auten-radio__input" name="radio" value="1">
+    </label>
 </div>
 <script src="assets/js/script.js" defer></script>
 </body>

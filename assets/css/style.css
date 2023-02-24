@@ -281,57 +281,62 @@ body {
   cursor: pointer;
   user-select: none;
 }
-.auten-input {
+.auten-field {
   display: flex;
   flex-direction: column;
   align-items: start;
   width: 100%;
-  min-height: 78px;
-  max-height: 94px;
   font-size: 14px;
   line-height: 14px;
   position: relative;
 }
-.auten-input.empty-default .auten-input__title {
-  color: #BCBEC0;
-}
-.auten-input.empty-default .auten-input__field {
-  border: 1px solid #BCBEC0;
-}
-.auten-input.empty-focus .auten-input__title {
-  color: black;
-}
-.auten-input.empty-focus .auten-input__field {
-  border: 1px solid black;
-}
-.auten-input.empty-error .auten-input__title {
-  color: #BC0022;
-}
-.auten-input.empty-error .auten-input__field {
-  border: 1px solid #BC0022;
-}
-.auten-input.empty-error .auten-input__error {
-  display: block;
-}
-.auten-input__title {
+.auten-field__title {
   color: #bcbec0;
   position: absolute;
   top: 0;
   left: 0;
+  transition: all 0.3s ease;
 }
-.auten-input__field {
+.auten-field__input {
   margin-top: 20px;
   padding: 16px;
-  border: 1px solid #bcbec0;
   height: 14px;
   font-size: 14px;
   color: black;
+  border: 1px solid #BCBEC0;
 }
-.auten-input__error {
+.auten-field__input::placeholder {
+  color: #BCBEC0;
+  transition: all 0.3s ease;
+}
+.auten-field__input:focus::placeholder {
+  opacity: 0;
+}
+.auten-field__error {
   margin-top: 8px;
-  display: none;
   font-size: 12px;
+  line-height: 1.2;
+  height: 15px;
   color: #BC0022;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+.auten-field.focus .auten-field__title {
+  color: black;
+}
+.auten-field.focus .auten-field__field {
+  border: 1px solid black;
+}
+.auten-field.has-error .auten-field__title {
+  color: #BC0022;
+}
+.auten-field.has-error .auten-field__field {
+  border: 1px solid #BC0022;
+}
+.auten-field.has-error .auten-field__error {
+  opacity: 1;
+  pointer-events: auto;
 }
 .auten-button {
   display: flex;
@@ -344,22 +349,19 @@ body {
   cursor: pointer;
   user-select: none;
   color: white;
+  background-color: #1a2026;
+  transition: 0.3s ease;
+}
+.auten-button.inactive {
+  color: white;
   background-color: #76797d;
 }
-.auten-button.default1 {
-  color: white;
-  background-color: #1a2026;
-}
-.auten-button.inactive1 {
-  color: white;
-  background-color: #717478;
-}
-.auten-button.default2 {
+.auten-button.outline {
   color: black;
   background-color: white;
   border: 1px solid black;
 }
-.auten-button.inactive2 {
+.auten-button.outline.inactive {
   color: #717478;
   background-color: white;
   border: 1px solid #717478;
@@ -385,6 +387,31 @@ body {
   width: 100%;
   flex: 1 1 auto;
   text-align: center;
+}
+
+.auten-radio {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid black;
+  padding: 5px;
+  display: block;
+}
+.auten-radio__input {
+  display: none;
+}
+.auten-radio:after {
+  content: "";
+  display: block;
+  opacity: 0;
+  transition: all 0.3s ease;
+  width: 100%;
+  height: 100%;
+  background: black;
+  border-radius: 50%;
+}
+.auten-radio.checked:after {
+  opacity: 1;
 }
 
 /*# sourceMappingURL=style.css.map */

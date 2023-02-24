@@ -37,7 +37,6 @@ body {
   min-height: 100vh;
 }
 .auten {
-
   &-header {
     display: flex;
     align-items: center;
@@ -263,66 +262,66 @@ body {
     }
   }
 
-  &-input {
+  &-field {
     display: flex;
     flex-direction: column;
     align-items: start;
     width: 100%;
-    min-height: 78px;
-    max-height: 94px;
     font-size: 14px;
     line-height: 14px;
     position: relative;
-
-    &.empty-default &__title {
-      color: #BCBEC0;
-    }
-
-    &.empty-default &__field {
-      border: 1px solid #BCBEC0;
-    }
-
-    &.empty-focus &__title {
-      color: black;
-    }
-
-    &.empty-focus &__field {
-      border: 1px solid black;
-    }
-
-    &.empty-error &__title {
-      color: #BC0022;
-    }
-
-    &.empty-error &__field {
-      border: 1px solid #BC0022;
-    }
-
-    &.empty-error &__error {
-      display: block;
-    }
-
     &__title {
       color: #bcbec0;
       position: absolute;
       top: 0;
       left: 0;
+      transition: all .3s ease;
     }
 
-    &__field {
+    &__input {
       margin-top: 20px;
       padding: 16px;
-      border: 1px solid #bcbec0;
       height: 14px;
       font-size: 14px;
       color: black;
+      border: 1px solid #BCBEC0;
+      &::placeholder{
+        color: #BCBEC0;
+        transition: all .3s ease;
+      }
+      &:focus::placeholder{
+        opacity: 0;
+      }
     }
-
     &__error {
       margin-top: 8px;
-      display: none;
       font-size: 12px;
+      line-height: 1.2;
+      height: 15px;
       color: #BC0022;
+      opacity: 0;
+      pointer-events: none;
+      transition:all .3s ease;
+    }
+    &.focus &__title {
+      color: black;
+    }
+
+    &.focus &__field {
+      border: 1px solid black;
+    }
+
+    &.has-error &__title {
+      color: #BC0022;
+    }
+
+    &.has-error &__field {
+      border: 1px solid #BC0022;
+    }
+
+    &.has-error &__error {
+      opacity: 1;
+      pointer-events: auto;
     }
   }
 
@@ -337,28 +336,21 @@ body {
     cursor: pointer;
     user-select: none;
     color: white;
-    background-color: #76797d;
-
-    &.default1 {
+    background-color: #1a2026;
+    transition: .3s ease;
+    &.inactive  {
       color: white;
-      background-color: #1a2026;
+      background-color: #76797d;
     }
-
-    &.inactive1 {
-      color: white;
-      background-color: #717478;
-    }
-
-    &.default2 {
+    &.outline{
       color: black;
       background-color: white;
       border: 1px solid black;
-    }
-
-    &.inactive2 {
-      color: #717478;
-      background-color: white;
-      border: 1px solid #717478;
+      &.inactive{
+        color: #717478;
+        background-color: white;
+        border: 1px solid #717478;
+      }
     }
   }
 
@@ -385,3 +377,27 @@ body {
   }
 }
 
+.auten-radio{
+  &__input{
+    display: none;
+  }
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid black;
+  padding: 5px;
+  display: block;
+  &:after{
+    content: "";
+    display: block;
+    opacity: 0;
+    transition: all .3s ease;
+    width: 100%;
+    height: 100%;
+    background: black;
+    border-radius: 50%;
+  }
+  &.checked:after{
+    opacity: 1;
+  }
+}
