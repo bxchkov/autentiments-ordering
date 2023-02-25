@@ -105,13 +105,12 @@ body {
   font-size: 75px;
 }
 .auten-container {
-  max-width: 1104px;
+  max-width: 1124px;
   margin: 0 auto;
   padding: 0 40px;
 }
 .auten-main {
   width: auto;
-  border: 2px solid orange;
   display: flex;
   flex-direction: row;
   gap: 97px;
@@ -153,6 +152,8 @@ body {
   justify-self: end;
   white-space: nowrap;
   margin-bottom: 10px;
+  cursor: pointer;
+  user-select: none;
 }
 .auten-cart-item__article {
   grid-area: article;
@@ -225,7 +226,7 @@ body {
   min-width: 340px;
   border: 1px solid #939598;
   padding: 16px;
-  height: 14px;
+  height: 48px;
   font-size: 14px;
 }
 .auten-authorization-tip {
@@ -258,7 +259,7 @@ body {
   justify-content: space-between;
   min-width: 340px;
   padding: 16px;
-  height: 16px;
+  height: 48px;
   font-size: 16px;
   background-color: #f5f5f5;
 }
@@ -300,10 +301,12 @@ body {
 .auten-field__input {
   margin-top: 20px;
   padding: 16px;
-  height: 14px;
+  height: 48px;
   font-size: 14px;
+  line-height: 14px;
   color: black;
   border: 1px solid #BCBEC0;
+  width: 100%;
 }
 .auten-field__input::placeholder {
   color: #BCBEC0;
@@ -366,10 +369,6 @@ body {
   background-color: white;
   border: 1px solid #717478;
 }
-.auten-your-order {
-  min-width: 340px;
-}
-
 .auten-counter {
   display: flex;
   padding: 7px 7px;
@@ -388,13 +387,155 @@ body {
   flex: 1 1 auto;
   text-align: center;
 }
-
+.auten-delivery-locations {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 50px;
+  font-size: 20px;
+  line-height: 24px;
+}
+.auten-delivery-locations .auten-field__title {
+  font-weight: 350;
+}
+.auten-delivery-locations .auten-field__input {
+  width: 515px;
+}
+.auten-delivery-locations__title {
+  margin-bottom: 17px;
+}
+.auten-delivery-methods {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  margin-top: 46px;
+  margin-bottom: 101px;
+}
+.auten-delivery-method {
+  display: grid;
+  grid-template: "radio        title  " auto "radio        address" auto "radio        date   " auto "radio        info   " auto/min-content auto;
+  grid-column-gap: 51px;
+  width: 100%;
+  padding: 16px;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease;
+}
+.auten-delivery-method.active {
+  background-color: #f3f3f3;
+}
+.auten-delivery-method .auten-radio {
+  grid-area: radio;
+  align-self: center;
+}
+.auten-delivery-method__title {
+  grid-area: title;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+.auten-delivery-method__address {
+  grid-area: address;
+  font-weight: 350;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+.auten-delivery-method__date {
+  grid-area: date;
+  color: #8CBA51;
+  font-weight: 350;
+  font-size: 14px;
+  line-height: 18.2px;
+}
+.auten-delivery-method__info {
+  grid-area: info;
+  margin-top: 10px;
+  font-weight: 350;
+  font-size: 12px;
+  line-height: 14.4px;
+}
+.auten-delivery-address {
+  display: grid;
+  grid-template: "street  street   house  " auto "bulding entrance office " auto "comment comment  comment" auto/1fr 1fr 1fr;
+  gap: 10px;
+  width: 515px;
+  margin-bottom: 60px;
+}
+.auten-delivery-address__street {
+  grid-area: street;
+}
+.auten-delivery-address__house {
+  grid-area: house;
+}
+.auten-delivery-address__bulding {
+  grid-area: building;
+}
+.auten-delivery-address__entrance {
+  grid-area: entrance;
+}
+.auten-delivery-address__office {
+  grid-area: office;
+}
+.auten-delivery-address__comment {
+  grid-area: comment;
+}
+.auten-recipient {
+  display: grid;
+  grid-template: "fname lname" 1fr "email phone" 1fr/1fr 1fr;
+  gap: 10px;
+  width: 100%;
+  padding-top: 54px;
+  margin-bottom: 100px;
+  position: relative;
+}
+.auten-recipient__title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 20px;
+  line-height: 24px;
+}
+.auten-recipient__first-name {
+  grid-area: fname;
+}
+.auten-recipient__last-name {
+  grid-area: lname;
+}
+.auten-recipient__email {
+  grid-area: email;
+}
+.auten-recipient__phone {
+  grid-area: phone;
+}
+.auten-your-order {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 340px;
+}
+.auten-your-order__title {
+  font-size: 20px;
+  line-height: 24px;
+  margin-bottom: 10px;
+}
+.auten-your-order__amount, .auten-your-order__total, .auten-your-order__discount, .auten-your-order__delivery, .auten-your-order__final {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-weight: 350;
+  font-size: 16px;
+}
+.auten-your-order__final {
+  font-weight: 400;
+  font-size: 18px;
+}
 .auten-radio {
   width: 20px;
   height: 20px;
   border-radius: 50%;
   border: 1px solid black;
-  padding: 5px;
+  padding: 3px;
+  cursor: pointer;
   display: block;
 }
 .auten-radio__input {

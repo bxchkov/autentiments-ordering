@@ -12,7 +12,6 @@
     Header
 </header>
 <div class="auten-container">
-    main
     <main class="auten-main">
         <div class="auten-ordering">
             <div class="auten-cart">
@@ -20,7 +19,7 @@
                     Корзина (2)
                 </div>
                 <div class="auten-cart__items">
-                    <div class="auten-cart-item">
+                    <form class="auten-cart-item">
                         <img class="auten-cart-item__image" src="assets/images/palto.png" alt="">
                         <div class="auten-cart-item__title">
                             Двубортное пальто из шерсти
@@ -32,7 +31,7 @@
                             Арт. Т7726290
                         </div>
                         <div class="auten-cart-item__price">
-                            <span>38 940</span> ₽
+                            <span class="auten-cart-item__price-amount">38 940</span> ₽
                         </div>
                         <div class="auten-cart-item__params">
                             <div class="auten-cart-item__color" style="background-color: #611e39;"></div>
@@ -40,14 +39,13 @@
                                 one size
                             </div>
                             <div class="auten-counter auten-cart-item__amount">
-                                <button class="auten-counter__button" data-count="1">+</button>
+                                <button class="auten-counter__button" data-count="-1">–</button>
                                 <input class="auten-counter__input" value="1" min="1">
-                                <button class="auten-counter__button" data-count="-1">-</button>
-
+                                <button class="auten-counter__button" data-count="1">+</button>
                             </div>
                         </div>
-                    </div>
-                    <div class="auten-cart-item">
+                    </form>
+                    <form class="auten-cart-item">
                         <img class="auten-cart-item__image" src="assets/images/longsleeev.png" alt="">
                         <div class="auten-cart-item__title">
                             Лонгслив Olivia
@@ -66,19 +64,19 @@
                             <div class="auten-cart-item__size">
                                 one size
                             </div>
-                            <div class="auten-cart-item__amount">
-                                <div class="auten-plus-button">+</div>
-                                <div class="auten-amount">1</div>
-                                <div class="auten-minus-button">-</div>
+                            <div class="auten-counter auten-cart-item__amount">
+                                <button class="auten-counter__button" data-count="-1">–</button>
+                                <input class="auten-counter__input" value="1" min="1">
+                                <button class="auten-counter__button" data-count="1">+</button>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
             </div>
             <div class="auten-pre-promo">
                 Ввести промокод
             </div>
-            <div class="auten-promo">
+            <form class="auten-promo">
                 <div class="auten-promo__title">
                     Промокод
                 </div>
@@ -86,47 +84,53 @@
                 <div class="auten-button inactive">
                     Применить
                 </div>
-            </div>
+            </form>
             <div class="auten-authorization-tip">
                 <a href="#">Авторизуйтесь</a>,
                 чтобы использовать накопленные баллы и<br>
                 учавствовать в программе лояльности
             </div>
-            <div class="auten-bonuses">
+            <form class="auten-bonuses">
                 <div class="auten-bonuses__field">
-                    <span>Бонусы</span>
+                    Бонусы
                     <div>
-                        <span>700</span> бонусов
+                        <span class="auten-bonuses__amount">700</span> бонусов
                     </div>
                 </div>
-                <div class="auten-button">
+                <button type="submit" class="auten-button">
                     Потратить
-                </div>
-            </div>
+                </button>
+            </form>
             <div class="auten-getting-bonuses">
                 <div class="auten-getting-bonuses__info">
-                    За эту покупку на Ваш счёт будет зачислено 600 бонусов!
+                    За эту покупку на Ваш счёт будет зачислено <span class="auten-getting-bonuses__amount">600</span> бонусов!
                 </div>
                 <a class="auten-getting-bonuses__rules" href="#">
                     Правила начисления и списания бонусов
                 </a>
             </div>
-            <div class="auten-delivery-location">
-                <div class="auten-delivery-location__country">
-                    Страна
-                    <div class="auten-input-field">
-                        Россия
-                    </div>
+            <div class="auten-delivery-locations">
+                <div class="auten-delivery-locations__title">
+                    Доставка
                 </div>
-                <div class="auten-delivery-location__city">
-                    Город
-                    <div class="auten-input-field">
-                        Санкт-Петербург
+                <div class="auten-field">
+                    <div class="auten-field__title">
+                        Страна
                     </div>
+                    <input class="auten-field__input" type="text" id="country" value="Россия">
+                </div>
+                <div class="auten-field">
+                    <div class="auten-field__title">
+                        Город
+                    </div>
+                    <input class="auten-field__input" type="text" id="city" value="Санкт-Петербург">
                 </div>
             </div>
-            <div class="auten-delivery-methods">
-                <div class="auten-delivery-method">
+            <form class="auten-delivery-methods">
+                <label class="auten-delivery-method active">
+                    <div class="auten-radio checked">
+                        <input type="radio" class="auten-radio__input" name="delivery" value="1">
+                    </div>
                     <div class="auten-delivery-method__title">
                         СДЭК
                     </div>
@@ -139,8 +143,11 @@
                     <div class="auten-delivery-method__info">
                         При заказе от 20 000 ₽ доставка в любую точку России осуществляется бесплатно
                     </div>
-                </div>
-                <div class="auten-delivery-method__item">
+                </label>
+                <label class="auten-delivery-method">
+                    <div class="auten-radio">
+                        <input type="radio" class="auten-radio__input" name="delivery" value="2">
+                    </div>
                     <div class="auten-delivery-method__title">
                         Курьером (СДЭК)
                     </div>
@@ -153,8 +160,11 @@
                     <div class="auten-delivery-method__info">
                         При заказе от 20 000 ₽ доставка в любую точку России осуществляется бесплатно
                     </div>
-                </div>
-                <div class="auten-delivery-method__item">
+                </label>
+                <label class="auten-delivery-method">
+                    <div class="auten-radio">
+                        <input type="radio" class="auten-radio__input" name="delivery" value="3">
+                    </div>
                     <div class="auten-delivery-method__title">
                         Самовывоз (Москва)
                     </div>
@@ -167,8 +177,11 @@
                     <div class="auten-delivery-method__info">
 
                     </div>
-                </div>
-                <div class="auten-delivery-method__item">
+                </label>
+                <label class="auten-delivery-method">
+                    <div class="auten-radio">
+                        <input type="radio" class="auten-radio__input" name="delivery" value="4">
+                    </div>
                     <div class="auten-delivery-method__title">
                         СДЭК
                     </div>
@@ -181,71 +194,73 @@
                     <div class="auten-delivery-method__info">
 
                     </div>
-                </div>
-            </div>
+                </label>
+            </form>
             <div class="auten-delivery-address">
-                <div class="auten-delivery-address__street">
-                    Улица
-                    <div class="auten-input-field">
-
+                <div class="auten-field auten-delivery-address__street">
+                    <div class="auten-field__title">
+                        Улица
                     </div>
+                    <input type="text" class="auten-field__input">
                 </div>
-                <div class="auten-delivery-address__house">
-                    Дом
-                    <div class="auten-input-field">
-
+                <div class="auten-field auten-delivery-address__house">
+                    <div class="auten-field__title">
+                        Дом
                     </div>
+                    <input type="text" class="auten-field__input">
                 </div>
-                <div class="auten-delivery-address__building">
-                    Корпус
-                    <div class="auten-input-field">
-
+                <div class="auten-field auten-delivery-address__building">
+                    <div class="auten-field__title">
+                        Корпус
                     </div>
+                    <input type="text" class="auten-field__input">
                 </div>
-                <div class="auten-delivery-address__entrance">
-                    Подъезд
-                    <div class="auten-input-field">
-
+                <div class="auten-field auten-delivery-address__entrance">
+                    <div class="auten-field__title">
+                        Подъезд
                     </div>
+                    <input type="text" class="auten-field__input">
                 </div>
-                <div class="auten-delivery-address__appatament-office">
-                    Квартира/офис
-                    <div class="auten-input-field">
-
+                <div class="auten-field auten-delivery-address__office">
+                    <div class="auten-field__title">
+                        Квартира/офис
                     </div>
+                    <input type="text" class="auten-field__input">
                 </div>
-                <div class="auten-delivery-address__comment">
-                    Комментарий
-                    <div class="auten-input-field">
-
+                <div class="auten-field auten-delivery-address__comment">
+                    <div class="auten-field__title">
+                        Комментарий
                     </div>
+                    <input type="text" class="auten-field__input">
                 </div>
             </div>
             <div class="auten-recipient">
-                Получатель
-                <div class="auten-recipient__first-name">
-                    Имя
-                    <div class="auten-input-field">
-
-                    </div>
+                <div class="auten-recipient__title">
+                    Получатель
                 </div>
-                <div class="auten-recipient__last-name">
-                    Фамилия
-                    <div class="auten-input-field">
-
+                <div class="auten-field auten-recipient__first-name">
+                    <div class="auten-field__title">
+                        Имя
                     </div>
+                    <input type="text" class="auten-field__input">
                 </div>
-                <div class="auten-recipient__email">
-                    Email
-                    <div class="auten-input-field">
-
+                <div class="auten-field auten-recipient__last-name">
+                    <div class="auten-field__title">
+                        Фамилия
                     </div>
+                    <input type="text" class="auten-field__input">
                 </div>
-                <div class="auten-recipient__phone">
-                    Номер телефона
-                    <div class="auten-input-field">
-
+                <div class="auten-field auten-recipient__email">
+                    <div class="auten-field__title">
+                        Email
                     </div>
+                    <input type="text" class="auten-field__input">
+                </div>
+                <div class="auten-field auten-recipient__phone">
+                    <div class="auten-field__title">
+                        Номер телефона
+                    </div>
+                    <input type="text" class="auten-field__input">
                 </div>
             </div>
         </div>
@@ -255,21 +270,31 @@
             </div>
             <div class="auten-your-order__amount">
                 Количество
+                <span><span class="auten-your-order__amount-value">2</span> товара</span>
             </div>
             <div class="auten-your-order__total">
                 Всего
+                <span><span class="auten-your-order__total-value">46 540</span> ₽</span>
             </div>
             <div class="auten-your-order__discount">
                 Скидка
+                <span><span class="auten-your-order__discount-value">0</span> ₽</span>
+            </div>
+            <div class="auten-your-order__delivery">
+                Доставка
+                <span><span class="auten-your-order__delivery-value">бесплатно</span></span>
             </div>
             <div class="auten-your-order__final">
-                Доставка
+                Итого
+                <span><span class="auten-your-order__final-value">45 840</span> ₽</span>
             </div>
-            <div class="auten-button">
+            <button type="submit" class="auten-button">
                 Перейти к оплате
-            </div>
+            </button>
         </div>
     </main>
+
+
     <label class="auten-field">
         <div class="auten-field__title">
             Поле ввода
@@ -279,12 +304,32 @@
             Поле должно быть заполнено
         </div>
     </label>
-    <label class="auten-radio">
-        <input type="radio" class="auten-radio__input" name="radio" value="0">
-    </label>
-    <label class="auten-radio">
-        <input type="radio" class="auten-radio__input" name="radio" value="1">
-    </label>
+
+
+    <form action="">
+        1111111111
+        <label class="auten-radio">
+            <input type="radio" class="auten-radio__input" name="i_suck" value="0">
+        </label>
+        <label class="auten-radio">
+            <input type="radio" class="auten-radio__input" name="i_suck" value="1">
+        </label>
+        2222222222
+        <label class="auten-radio">
+            <input type="radio" class="auten-radio__input" name="i_daun" value="0">
+        </label>
+        <label class="auten-radio">
+            <input type="radio" class="auten-radio__input" name="i_daun" value="1">
+        </label>
+        <input type="radio" class="" name="test" value="1">
+        <input type="radio" class="" name="test" value="2">
+        <input type="radio" class="" name="test" value="3">
+        <br>
+        <input type="radio" class="" name="test2" value="1">
+        <input type="radio" class="" name="test2" value="2">
+        <input type="radio" class="" name="test2" value="3">
+    </form>
+
 </div>
 <script src="assets/js/script.js" defer></script>
 </body>
