@@ -78,7 +78,7 @@ document.addEventListener("click", e => {
     document.querySelectorAll(`.auten-select.active`).forEach(item => {
         item.classList.remove("active")
     })
-    item.closest(`.auten-select`).classList.toggle("active");
+    item.closest(`.auten-select`).classList.add("active");
 })
 // при загрузке страницы устанавливаем дефолтные значения
 document.querySelectorAll(`.auten-select`).forEach(select => {
@@ -97,20 +97,43 @@ document.querySelectorAll(`.auten-select`).forEach(select => {
 
 //fields
 
-document.addEventListener("click", e=>{
+document.addEventListener("focusin", e => {
     let field = e.target.closest(".auten-field");
-    let fields = document.querySelectorAll(".auten-field");
-    const fieldsClear = () => {
-        fields.forEach(field=>{
-            field.classList.remove("focus");
-        })
-    }
-    if (!field){
-        fieldsClear();
+    if (!field)
         return;
-    }
-    if (!field.classList.contains("focus")){
-        fieldsClear();
-        field.classList.add("focus");
+    let fieldValue = field.querySelector(".auten-field__input").value;
+    field.classList.add("focus");
+    if (fieldValue === ""){
+        field.classList.remove("has-error");
     }
 })
+document.addEventListener("focusout", e => {
+    let field = e.target.closest(".auten-field");
+    if (!field)
+        return;
+    field.classList.remove("focus");
+})
+document.addEventListener("input", e=>{
+    console.log("input");
+})
+
+//steps
+
+function step(s){
+    switch (s){
+        case "cart":
+
+            break;
+        case "delivery":
+
+            break;
+        case "cart":
+
+            break;
+        case "cart":
+            break;
+        case "cart":
+            break;
+
+    }
+}

@@ -13,23 +13,27 @@
 </header>
 <div class="auten-container">
     <main class="auten-main">
+        <a href="#" class="auten-back">Назад</a>
+        <a href="#" class="auten-help">Помощь</a>
         <div class="auten-ordering">
-            <div class="auten-cart">
+            <div class="auten-cart" id="cart">
                 <div class="auten-cart__title">
-                    Корзина (2)
+                    Корзина (<span>2</span>)
                 </div>
                 <div class="auten-cart__items">
                     <form class="auten-cart-item">
-                        <img class="auten-cart-item__image" src="assets/images/palto.png" alt="">
-                        <div class="auten-cart-item__title">
+                        <a class="auten-cart-item__image" href="#">
+                            <img src="assets/images/palto.png" alt="">
+                        </a>
+                        <a class="auten-cart-item__title" href="#">
                             Двубортное пальто из шерсти
-                        </div>
+                        </a>
                         <div class="auten-cart-item__delete">
                             удалить
                         </div>
-                        <div class="auten-cart-item__article">
+                        <a class="auten-cart-item__article" href="#">
                             Арт. Т7726290
-                        </div>
+                        </a>
                         <div class="auten-cart-item__price">
                             <span class="auten-cart-item__price-amount">38 940</span> ₽
                         </div>
@@ -51,16 +55,18 @@
                         </div>
                     </form>
                     <form class="auten-cart-item">
-                        <img class="auten-cart-item__image" src="assets/images/longsleeev.png" alt="">
-                        <div class="auten-cart-item__title">
+                        <a class="auten-cart-item__image" href="#">
+                            <img src="assets/images/longsleeev.png" alt="">
+                        </a>
+                        <a class="auten-cart-item__title" href="#">
                             Лонгслив Olivia
-                        </div>
+                        </a>
                         <div class="auten-cart-item__delete">
                             удалить
                         </div>
-                        <div class="auten-cart-item__article">
+                        <a class="auten-cart-item__article" href="#">
                             Арт. Т7726290
-                        </div>
+                        </a>
                         <div class="auten-cart-item__price">
                             7 600 ₽
                         </div>
@@ -83,34 +89,36 @@
                     </form>
                 </div>
             </div>
-            <div class="auten-pre-promo">
-                Ввести промокод
-            </div>
-            <form class="auten-field auten-promo">
-                <div class="auten-field__title">
-                    Промокод
+
+            <div class="auten-promo">
+                <div class="auten-field auten-promo__field">
+                    <div class="auten-field__title">
+                        Промокод
+                    </div>
+                    <input type="text" class="auten-field__input">
                 </div>
-                <input type="text" class="auten-field__input auten-promo__field">
                 <button type="submit" class="auten-button inactive">
                     Применить
                 </button>
-            </form>
+            </div>
+
             <div class="auten-authorization-tip">
                 <a href="#">Авторизуйтесь</a>,
                 чтобы использовать накопленные баллы и<br>
                 учавствовать в программе лояльности
             </div>
-            <form class="auten-bonuses">
+
+
+            <div class="auten-bonuses" id="cart">
                 <div class="auten-bonuses__field">
-                    Бонусы
-                    <div>
-                        <span class="auten-bonuses__amount">700</span> бонусов
-                    </div>
+                    Бонусы <span class="auten-bonuses__amount">700</span>&nbspбонусов
                 </div>
                 <button type="submit" class="auten-button">
                     Потратить
                 </button>
-            </form>
+            </div>
+
+
             <div class="auten-getting-bonuses">
                 <div class="auten-getting-bonuses__info">
                     За эту покупку на Ваш счёт будет зачислено <span class="auten-getting-bonuses__amount">600</span>
@@ -120,12 +128,11 @@
                     Правила начисления и списания бонусов
                 </a>
             </div>
-
             <form class="auten-order">
                 <fieldset class="auten-order-group">
                     <div class="auten-order__title">Доставка</div>
                     <div class="auten-order-group__inner">
-                        <div class="auten-field">
+                        <div class="auten-field has-error">
                             <div class="auten-field__title">
                                 Страна
                             </div>
@@ -137,97 +144,102 @@
                             </div>
                             <input class="auten-field__input" type="text" id="city" value="Санкт-Петербург">
                         </div>
-                        <label class="auten-delivery-method active">
-                            <div class="auten-radio checked">
-                                <input type="radio" class="auten-radio__input" name="delivery" value="1">
-                            </div>
-                            <div class="auten-delivery-method__title">
-                                СДЭК
-                            </div>
-                            <div class="auten-delivery-method__address">
-                                До пункта выдачи заказов
-                            </div>
-                            <div class="auten-delivery-method__date">
-                                4-6 дней, бесплатно
-                            </div>
-                            <div class="auten-delivery-method__info">
-                                При заказе от 20 000 ₽ доставка в любую точку России осуществляется бесплатно
-                            </div>
-                        </label>
-                        <label class="auten-delivery-method">
-                            <div class="auten-radio">
-                                <input type="radio" class="auten-radio__input" name="delivery" value="2">
-                            </div>
-                            <div class="auten-delivery-method__title">
-                                Курьером (СДЭК)
-                            </div>
-                            <div class="auten-delivery-method__address">
-                                На указанный адрес
-                            </div>
-                            <div class="auten-delivery-method__date">
-                                4-6 дней, бесплатно
-                            </div>
-                            <div class="auten-delivery-method__info">
-                                При заказе от 20 000 ₽ доставка в любую точку России осуществляется бесплатно
-                            </div>
-                        </label>
-                        <label class="auten-delivery-method">
-                            <div class="auten-radio">
-                                <input type="radio" class="auten-radio__input" name="delivery" value="3">
-                            </div>
-                            <div class="auten-delivery-method__title">
-                                Самовывоз (Москва)
-                            </div>
-                            <div class="auten-delivery-method__address">
-                                ул. Пятницкая, 7, стр.5
-                            </div>
-                            <div class="auten-delivery-method__date">
-                                до 2-х дней, бесплатно
-                            </div>
-                        </label>
-                        <label class="auten-delivery-method">
-                            <div class="auten-radio">
-                                <input type="radio" class="auten-radio__input" name="delivery" value="4">
-                            </div>
-                            <div class="auten-delivery-method__title">
-                                Самовывоз (Санкт-Петербург)
-                            </div>
-                            <div class="auten-delivery-method__address">
-                                Басков пер., 26
-                            </div>
-                            <div class="auten-delivery-method__date">
-                                до 2-х дней, бесплатно
-                            </div>
-                        </label>
+                        <div class="auten-delivery-methods">
+                            <label class="auten-delivery-method active">
+                                <div class="auten-radio checked">
+                                    <input type="radio" class="auten-radio__input" name="delivery" value="1">
+                                </div>
+                                <div class="auten-delivery-method__title">
+                                    СДЭК
+                                </div>
+                                <div class="auten-delivery-method__address">
+                                    До пункта выдачи заказов
+                                </div>
+                                <div class="auten-delivery-method__date">
+                                    4-6 дней, бесплатно
+                                </div>
+                                <div class="auten-delivery-method__info">
+                                    При заказе от 20 000 ₽ доставка в любую точку России осуществляется бесплатно
+                                </div>
+                            </label>
+                            <label class="auten-delivery-method">
+                                <div class="auten-radio">
+                                    <input type="radio" class="auten-radio__input" name="delivery" value="2">
+                                </div>
+                                <div class="auten-delivery-method__title">
+                                    Курьером (СДЭК)
+                                </div>
+                                <div class="auten-delivery-method__address">
+                                    На указанный адрес
+                                </div>
+                                <div class="auten-delivery-method__date">
+                                    4-6 дней, бесплатно
+                                </div>
+                                <div class="auten-delivery-method__info">
+                                    При заказе от 20 000 ₽ доставка в любую точку России осуществляется бесплатно
+                                </div>
+                            </label>
+                            <label class="auten-delivery-method">
+                                <div class="auten-radio">
+                                    <input type="radio" class="auten-radio__input" name="delivery" value="3">
+                                </div>
+                                <div class="auten-delivery-method__title">
+                                    Самовывоз (Москва)
+                                </div>
+                                <div class="auten-delivery-method__address">
+                                    ул. Пятницкая, 7, стр.5
+                                </div>
+                                <div class="auten-delivery-method__date">
+                                    до 2-х дней, бесплатно
+                                </div>
+                            </label>
+                            <label class="auten-delivery-method">
+                                <div class="auten-radio">
+                                    <input type="radio" class="auten-radio__input" name="delivery" value="4">
+                                </div>
+                                <div class="auten-delivery-method__title">
+                                    Самовывоз (Санкт-Петербург)
+                                </div>
+                                <div class="auten-delivery-method__address">
+                                    Басков пер., 26
+                                </div>
+                                <div class="auten-delivery-method__date">
+                                    до 2-х дней, бесплатно
+                                </div>
+                            </label>
+                            <button class="auten-button auten-delivery-method__mobile" data-step="deliveryMethod" id="">Продолжить</button>
+                        </div>
                     </div>
                 </fieldset>
-                <fieldset class="auten-order-group"  >
+                <fieldset class="auten-order-group">
+                    <div class="auten-order__title">Доставка</div>
                     <div class="auten-order-group__inner auten-order-group__grid">
-                        <label class="auten-field" style="--column:8">
+                        <label class="auten-field" style="--column: 8;">
                             <div class="auten-field__title">
                                 Улица
                             </div>
                             <input type="text" class="auten-field__input">
                         </label>
-                        <label class="auten-field" style="--column:4">
+                        <label class="auten-field" style="--column: 4;">
                             <div class="auten-field__title">
                                 Дом
                             </div>
                             <input type="text" class="auten-field__input">
                         </label>
-                        <label class="auten-field" style="--column:4">
+                        <label class="auten-field has-error" style="--column: 4;">
                             <div class="auten-field__title">
                                 Корпус
                             </div>
                             <input type="text" class="auten-field__input">
+                            <div class="auten-field__error">Поле должно быть заполнено!</div>
                         </label>
-                        <label class="auten-field" style="--column:4">
+                        <label class="auten-field" style="--column: 4; --mobile-column: 6">
                             <div class="auten-field__title">
                                 Подъезд
                             </div>
                             <input type="text" class="auten-field__input">
                         </label>
-                        <label class="auten-field" style="--column:4">
+                        <label class="auten-field" style="--column: 4; --mobile-column: 6">
                             <div class="auten-field__title">
                                 Квартира/офис
                             </div>
@@ -244,11 +256,12 @@
                 <fieldset class="auten-order-group">
                     <div class="auten-order__title">Получатель</div>
                     <div class="auten-order-group__inner auten-order-group__grid">
-                        <label class="auten-field" style="--column: 6;">
+                        <label class="auten-field has-error" style="--column: 6;">
                             <div class="auten-field__title">
                                 Имя
                             </div>
-                            <input type="text" class="auten-field__input">
+                            <input type="text" class="auten-field__input" value="test">
+                            <div class="auten-field__error">Поле должно быть заполнено!</div>
                         </label>
                         <label class="auten-field" style="--column: 6;">
                             <div class="auten-field__title">
@@ -257,7 +270,7 @@
                             <input type="text" class="auten-field__input">
                         </label>
                         <label class="auten-field" style="--column: 6;">
-                            <div class="auten-field__title">
+                            <div class="auten-field__title" >
                                 Email
                             </div>
                             <input type="text" class="auten-field__input">
@@ -293,17 +306,35 @@
                     Доставка
                     <div class="ms-total-cost"><span>бесплатно</span></div>
                 </div>
-                <div class="auten-order-aside__field">
+                <div class="auten-order-aside__field auten-order-aside__final">
                     Итого
                     <div class="ms-total-cost"><span>45 840</span>&nbsp;₽</div>
                 </div>
             </div>
-            <button type="submit" class="auten-button">
-                Перейти к оплате
+            <div class="auten-pre-promo">
+                Ввести промокод
+            </div>
+            <div class="auten-promo auten-promo-mobile">
+                <div class="auten-field auten-promo__field">
+                    <div class="auten-field__title">
+                        Промокод
+                    </div>
+                    <input type="text" class="auten-field__input">
+                </div>
+                <button type="submit" class="auten-button">
+                    Применить
+                </button>
+            </div>
+            <button type="submit" class="auten-button" data-step="deliveryMethods">
+                <span class="auten-promo-button__pc">
+                    Перейти к оплате
+                </span>
+                <div class="auten-promo-button__mobile">
+                    Оформить заказ (<span>46 540</span>&nbsp₽)
+                </div>
             </button>
         </aside>
     </main>
-
 
 <!--    <form class="govno">
         Компоненты
