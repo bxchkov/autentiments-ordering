@@ -36,6 +36,10 @@ body {
   font-family: Roboto, Circe, serif;
   min-height: 100vh;
   padding-bottom: 30px;
+  @media (max-width: 1023px) {
+    padding-bottom: 14px;
+
+  }
 }
 
 .auten {
@@ -240,14 +244,6 @@ body {
         left: calc(50% - 43.72px);
       }
     }
-
-    &__items {
-
-      @media (max-width: 1023px) {
-        overflow-y: auto;
-        height: 100%;
-      }
-    }
   }
 
   &-cart-item {
@@ -268,7 +264,6 @@ body {
     }
 
     @media (max-width: 1023px) {
-      margin-right: 12px;
       &:last-child .auten-select .auten-select__items{
         top: unset;
         bottom: calc(100% - 1px);
