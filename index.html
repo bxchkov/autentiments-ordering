@@ -16,7 +16,7 @@
         <a href="#" class="auten-back">Назад</a>
         <a href="#" class="auten-help">Помощь</a>
         <div class="auten-ordering">
-            <div class="auten-cart" id="cart">
+            <div class="auten-cart" data-step-open="cart">
                 <div class="auten-cart__title">
                     Корзина (<span>2</span>)
                 </div>
@@ -77,7 +77,7 @@
                                 <div class="auten-select__items">
                                     <label class="auten-select-item"><input type="radio" name="size" value="S">S</label>
                                     <label class="auten-select-item"><input type="radio" name="size" value="M" checked>M</label>
-                                    <label class="auten-select-item"><input type="radio" name="size" value="L" >L</label>
+                                    <label class="auten-select-item"><input type="radio" name="size" value="L">L</label>
                                 </div>
                             </div>
                             <div class="auten-counter auten-cart-item__amount">
@@ -109,7 +109,7 @@
             </div>
 
 
-            <div class="auten-bonuses" id="cart">
+            <div class="auten-bonuses" data-step-open="cart">
                 <div class="auten-bonuses__field">
                     Бонусы <span class="auten-bonuses__amount">700</span>&nbspбонусов
                 </div>
@@ -119,7 +119,7 @@
             </div>
 
 
-            <div class="auten-getting-bonuses">
+            <div class="auten-getting-bonuses" data-step-open="cart">
                 <div class="auten-getting-bonuses__info">
                     За эту покупку на Ваш счёт будет зачислено <span class="auten-getting-bonuses__amount">600</span>
                     бонусов!
@@ -129,7 +129,7 @@
                 </a>
             </div>
             <form class="auten-order">
-                <fieldset class="auten-order-group">
+                <fieldset class="auten-order-group" data-step-open="deliveryMethods">
                     <div class="auten-order__title">Доставка</div>
                     <div class="auten-order-group__inner">
                         <div class="auten-field has-error">
@@ -207,11 +207,13 @@
                                     до 2-х дней, бесплатно
                                 </div>
                             </label>
-                            <button class="auten-button auten-delivery-method__mobile" data-step="deliveryMethod" id="">Продолжить</button>
+                            <button class="auten-button auten-mobile__button" data-step="deliveryMethod">
+                                Продолжить
+                            </button>
                         </div>
                     </div>
                 </fieldset>
-                <fieldset class="auten-order-group">
+                <fieldset class="auten-order-group"  data-step-open="deliveryMethod">
                     <div class="auten-order__title">Доставка</div>
                     <div class="auten-order-group__inner auten-order-group__grid">
                         <label class="auten-field" style="--column: 8;">
@@ -251,9 +253,12 @@
                             </div>
                             <input type="text" class="auten-field__input">
                         </label>
+                        <button type="submit" class="auten-button auten-mobile__button inactive" data-step="recipient">
+                            Продолжить
+                        </button>
                     </div>
                 </fieldset>
-                <fieldset class="auten-order-group">
+                <fieldset class="auten-order-group" data-step-open="recipient">
                     <div class="auten-order__title">Получатель</div>
                     <div class="auten-order-group__inner auten-order-group__grid">
                         <label class="auten-field has-error" style="--column: 6;">
@@ -270,7 +275,7 @@
                             <input type="text" class="auten-field__input">
                         </label>
                         <label class="auten-field" style="--column: 6;">
-                            <div class="auten-field__title" >
+                            <div class="auten-field__title">
                                 Email
                             </div>
                             <input type="text" class="auten-field__input">
@@ -281,11 +286,19 @@
                             </div>
                             <input type="text" class="auten-field__input">
                         </label>
+                        <div class="auten-mobile__button">
+                            <button type="submit" class="auten-button inactive">
+                                Перейти к оплате
+                            </button>
+                            <button type="submit" class="auten-button outline inactive">
+                                Оплата при получении
+                            </button>
+                        </div>
                     </div>
                 </fieldset>
             </form>
         </div>
-        <aside class="auten-order-aside">
+        <aside class="auten-order-aside" data-step-open="cart">
             <div class="auten-order-aside__title">
                 Ваш заказ
             </div>
@@ -335,87 +348,6 @@
             </button>
         </aside>
     </main>
-
-<!--    <form class="govno">
-        Компоненты
-        <label class="auten-field">
-            <div class="auten-field__title">
-                Поле ввода
-            </div>
-            <input type="text" class="auten-field__input" placeholder="Ваше имя">
-            <div class="auten-field__error">
-                Поле должно быть заполнено
-            </div>
-        </label>
-        radio 1
-        <label class="auten-radio">
-            <input type="radio" class="auten-radio__input" name="i_suck" value="0">
-        </label>
-        <label class="auten-radio">
-            <input type="radio" class="auten-radio__input" name="i_suck" value="1">
-        </label>
-        radio 2
-        <label class="auten-radio">
-            <input type="radio" class="auten-radio__input" name="i_daun" value="0">
-        </label>
-        <label class="auten-radio">
-            <input type="radio" class="auten-radio__input" name="i_daun" value="1">
-        </label>
-        radio 3
-        <div>
-            <input type="radio" class="" name="test" value="1">
-            <input type="radio" class="" name="test" value="2">
-            <input type="radio" class="" name="test" value="3">
-        </div>
-        <div>
-            <input type="radio" class="" name="test2" value="1">
-            <input type="radio" class="" name="test2" value="2">
-            <input type="radio" class="" name="test2" value="3">
-        </div>
-        <br><br>
-        <div class="auten-select govno__selects" style="left: 20%">
-            <div class="auten-select__default auten-select__item">one size</div>
-            <svg class="auten-select__icon"
-                 width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <line y1="-0.3" x2="6.10744" y2="-0.3"
-                      transform="matrix(0.719331 0.694668 -0.719331 0.694668 0 1.24268)" stroke="#1A2026"
-                      stroke-width="0.6"/>
-                <line y1="-0.3" x2="6.10744" y2="-0.3"
-                      transform="matrix(0.719331 -0.694668 0.719331 0.694668 4.39331 5.48535)" stroke="#1A2026"
-                      stroke-width="0.6"/>
-            </svg>
-            <div class="auten-select__item">1</div>
-            <div class="auten-select__item">2</div>
-            <div class="auten-select__item">3</div>
-        </div>
-        <div class="auten-select govno__selects" style="left: 30%">
-            <div class="auten-select__default auten-select__item">one size</div>
-            <svg class="auten-select__icon"
-                 width="9" height="6" viewBox="0 0 9 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <line y1="-0.3" x2="6.10744" y2="-0.3"
-                      transform="matrix(0.719331 0.694668 -0.719331 0.694668 0 1.24268)" stroke="#1A2026"
-                      stroke-width="0.6"/>
-                <line y1="-0.3" x2="6.10744" y2="-0.3"
-                      transform="matrix(0.719331 -0.694668 0.719331 0.694668 4.39331 5.48535)" stroke="#1A2026"
-                      stroke-width="0.6"/>
-            </svg>
-            <div class="auten-select__item">1</div>
-            <div class="auten-select__item">2</div>
-            <div class="auten-select__item">3</div>
-        </div>
-        <div class="auten-select govno__selects" style="left: 40%">
-            <div class="auten-select__default auten-select__item">one size</div>
-            <svg class="auten-select__icon" width="9" height="6" viewBox="0 0 9 6" fill="none"
-                 xmlns="http://www.w3.org/2000/svg">
-                <line y1="-0.3" x2="6.10744" y2="-0.3"
-                      transform="matrix(0.719331 0.694668 -0.719331 0.694668 0 1.24268)" stroke="#1A2026"
-                      stroke-width="0.6"/>
-                <line y1="-0.3" x2="6.10744" y2="-0.3"
-                      transform="matrix(0.719331 -0.694668 0.719331 0.694668 4.39331 5.48535)" stroke="#1A2026"
-                      stroke-width="0.6"/>
-            </svg>
-        </div>
-    </form>-->
 </div>
 
 <script src="assets/js/script.js" defer></script>

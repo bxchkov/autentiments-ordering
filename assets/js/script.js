@@ -117,11 +117,44 @@ document.addEventListener("input", e=>{
     console.log("input");
 })
 
+
 //steps
 
-function step(s){
-    switch (s){
-        case "cart":
+// по дефолту прячем все элемы, имеющие степ состояния
+
+function steps (stepAtr) {
+    let steps = document.querySelectorAll(`[data-step-open]`);
+    console.log(steps);
+    steps.forEach(step=>{
+        step.style.display = "none";
+    })
+    if (stepAtr){
+        steps.forEach(step=>{
+            step.style.display = "none";
+        })
+    }
+}
+steps();
+
+// показываем дефолтные/изначальные степ элемы
+let stepElems = document.querySelectorAll(`[data-step-open='cart']`);
+console.log(stepElems);
+stepElems.forEach(elem=>{
+    elem.style.display = "";
+})
+
+// берем у нажатой с аттрибутом кнопки значение аттрибута и кадем в функцию step
+document.addEventListener("click", e=>{
+    let button = e.target.closest(`.auten-button[data-step]`);
+    console.log(button);
+    console.log(button.getAttribute("data-step"));
+    step(button.getAttribute("data-step"));
+})
+
+//
+function step(dataStep){
+    switch (dataStep){
+        case "deliveryMethods":
 
             break;
         case "delivery":
@@ -136,4 +169,8 @@ function step(s){
             break;
 
     }
+}
+
+function stepsToggle(stepAtr) {
+
 }

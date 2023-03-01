@@ -528,6 +528,14 @@ body {
     margin-bottom: 10px;
     align-items: end;
 
+    @media (max-width: 542px) {
+      width: 100%;
+    }
+
+    @media (max-width: 1023px) {
+      display: none;
+    }
+
     &-mobile {
       display: none;
       //margin-bottom: 0;
@@ -535,6 +543,15 @@ body {
 
       &.active {
         display: flex;
+      }
+    }
+
+    &__field {
+      min-width: 340px;
+      transition: width .3s ease;
+
+      @media (max-width: 542px) {
+        min-width: 63%;
       }
     }
 
@@ -552,23 +569,6 @@ body {
         @media (max-width: 1023px) {
           display: block;
         }
-      }
-    }
-
-    @media (max-width: 542px) {
-      width: 100%;
-    }
-
-    @media (max-width: 1023px) {
-      display: none;
-    }
-
-    &__field {
-      min-width: 340px;
-      transition: width .3s ease;
-
-      @media (max-width: 542px) {
-        min-width: 63%;
       }
     }
   }
@@ -660,6 +660,7 @@ body {
     &.inactive {
       color: white;
       background-color: #76797d;
+      cursor: unset;
     }
 
     &.outline {
@@ -671,6 +672,21 @@ body {
         color: #717478;
         background-color: white;
         border: 1px solid #717478;
+        cursor: unset;
+      }
+    }
+  }
+
+  &-mobile {
+
+    &__button{
+      display: none;
+      margin-top: 10px;
+
+      @media (max-width: 1023px) {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
       }
     }
   }
@@ -739,6 +755,10 @@ body {
         .auten-field {
           margin-top: 0;
         }
+      }
+
+      &__button {
+        margin-top: 10px;
       }
     }
 
@@ -956,14 +976,8 @@ body {
 
 }
 
-//.govno {
-//  display: flex;
-//  flex-direction: column;
-//  align-items: flex-start;
-//  gap: 10px;
-//  position: relative;
-//
-//  &__selects {
-//    top: 30%;
-//  }
-//}
+.step {
+  @media (max-width: 1023px) {
+    display: inherit!important;
+  }
+}

@@ -305,6 +305,7 @@ body {
   flex-direction: column;
   width: 603px;
   margin-bottom: 60px;
+  align-items: stretch;
   transition: all 0.3s ease;
 }
 @media (max-width: 1074px) {
@@ -314,7 +315,6 @@ body {
 }
 @media (max-width: 1023px) {
   .auten-cart {
-    margin-top: 60px;
     margin-bottom: 20px;
     width: 100%;
   }
@@ -330,7 +330,9 @@ body {
     font-size: 16px;
     line-height: 16px;
     margin-bottom: 0;
-    position: absolute;
+    /* position: absolute; */
+    margin-bottom: 50px;
+    text-align: center;
     top: 0;
     left: calc(50% - 43.72px);
   }
@@ -540,12 +542,31 @@ body {
   margin-bottom: 10px;
   align-items: end;
 }
+@media (max-width: 542px) {
+  .auten-promo {
+    width: 100%;
+  }
+}
+@media (max-width: 1023px) {
+  .auten-promo {
+    display: none;
+  }
+}
 .auten-promo-mobile {
   display: none;
   margin-bottom: 20px;
 }
 .auten-promo-mobile.active {
   display: flex;
+}
+.auten-promo__field {
+  min-width: 340px;
+  transition: width 0.3s ease;
+}
+@media (max-width: 542px) {
+  .auten-promo__field {
+    min-width: 63%;
+  }
 }
 .auten-promo-button__pc {
   display: block;
@@ -561,25 +582,6 @@ body {
 @media (max-width: 1023px) {
   .auten-promo-button__mobile {
     display: block;
-  }
-}
-@media (max-width: 542px) {
-  .auten-promo {
-    width: 100%;
-  }
-}
-@media (max-width: 1023px) {
-  .auten-promo {
-    display: none;
-  }
-}
-.auten-promo__field {
-  min-width: 340px;
-  transition: width 0.3s ease;
-}
-@media (max-width: 542px) {
-  .auten-promo__field {
-    min-width: 63%;
   }
 }
 .auten-authorization-tip {
@@ -663,6 +665,7 @@ body {
 .auten-button.inactive {
   color: white;
   background-color: #76797d;
+  cursor: unset;
 }
 .auten-button.outline {
   color: black;
@@ -673,6 +676,18 @@ body {
   color: #717478;
   background-color: white;
   border: 1px solid #717478;
+  cursor: unset;
+}
+.auten-mobile__button {
+  display: none;
+  margin-top: 10px;
+}
+@media (max-width: 1023px) {
+  .auten-mobile__button {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
 }
 .auten-counter {
   display: flex;
@@ -736,6 +751,9 @@ body {
 }
 .auten-order-group__grid .auten-field {
   margin-top: 0;
+}
+.auten-order-group__button {
+  margin-top: 10px;
 }
 .auten-order__title {
   margin-bottom: 30px;
@@ -927,6 +945,12 @@ body {
 }
 .auten-radio.checked:after {
   opacity: 1;
+}
+
+@media (max-width: 1023px) {
+  .step {
+    display: inherit !important;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */
