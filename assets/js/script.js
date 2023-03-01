@@ -103,9 +103,6 @@ document.addEventListener("focusin", e => {
         return;
     let fieldValue = field.querySelector(".auten-field__input").value;
     field.classList.add("focus");
-    if (fieldValue === ""){
-        field.classList.remove("has-error");
-    }
 })
 document.addEventListener("focusout", e => {
     let field = e.target.closest(".auten-field");
@@ -113,64 +110,39 @@ document.addEventListener("focusout", e => {
         return;
     field.classList.remove("focus");
 })
-document.addEventListener("input", e=>{
-    console.log("input");
+
+// изменение ипнута
+document.addEventListener("input", e => {
+    let field = e.target.closest(".auten-field");
+    if (!field)
+        return
+    field.classList.remove("has-error");
 })
 
 
-//steps
-
+// steps
 // по дефолту прячем все элемы, имеющие степ состояния
-
-function steps (stepAtr) {
-    let steps = document.querySelectorAll(`[data-step-open]`);
-    console.log(steps);
-    steps.forEach(step=>{
-        step.style.display = "none";
+function goStep(stepAtr) {
+    if (!stepAtr)
+        return;
+    let steps = document.querySelectorAll(`[data-step][data-step-open]`);
+    steps.forEach(step => {
+        step.removeAttribute("data-step-open");
     })
-    if (stepAtr){
-        steps.forEach(step=>{
-            step.style.display = "none";
-        })
-    }
-}
-steps();
+    let stepsOn = document.querySelectorAll(`[data-step="${stepAtr}"]`);
+    stepsOn.forEach(step => {
+        step.setAttribute("data-step-open", "");
+    })
 
-// показываем дефолтные/изначальные степ элемы
-let stepElems = document.querySelectorAll(`[data-step-open='cart']`);
-console.log(stepElems);
-stepElems.forEach(elem=>{
-    elem.style.display = "";
+}
+
+goStep("cart");
+
+// берем у нажатой с аттрибутом кнопки значение аттрибута и прокидываем step
+document.addEventListener("click", e => {
+    let button = e.target.closest(`[data-go-step]`);
+    if (button?.dataset.goStep) {
+        goStep(button.dataset.goStep);
+    }
 })
 
-// берем у нажатой с аттрибутом кнопки значение аттрибута и кадем в функцию step
-document.addEventListener("click", e=>{
-    let button = e.target.closest(`.auten-button[data-step]`);
-    console.log(button);
-    console.log(button.getAttribute("data-step"));
-    step(button.getAttribute("data-step"));
-})
-
-//
-function step(dataStep){
-    switch (dataStep){
-        case "deliveryMethods":
-
-            break;
-        case "delivery":
-
-            break;
-        case "cart":
-
-            break;
-        case "cart":
-            break;
-        case "cart":
-            break;
-
-    }
-}
-
-function stepsToggle(stepAtr) {
-
-}

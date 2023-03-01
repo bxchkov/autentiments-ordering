@@ -16,7 +16,7 @@
         <a href="#" class="auten-back">Назад</a>
         <a href="#" class="auten-help">Помощь</a>
         <div class="auten-ordering">
-            <div class="auten-cart" data-step-open="cart">
+            <div class="auten-cart" data-step="cart">
                 <div class="auten-cart__title">
                     Корзина (<span>2</span>)
                 </div>
@@ -87,49 +87,74 @@
                             </div>
                         </div>
                     </form>
+                    <form class="auten-cart-item">
+                        <a class="auten-cart-item__image" href="#">
+                            <img src="assets/images/palto.png" alt="">
+                        </a>
+                        <a class="auten-cart-item__title" href="#">
+                            Двубортное пальто из шерсти
+                        </a>
+                        <div class="auten-cart-item__delete">
+                            удалить
+                        </div>
+                        <a class="auten-cart-item__article" href="#">
+                            Арт. Т7726290
+                        </a>
+                        <div class="auten-cart-item__price">
+                            <span class="auten-cart-item__price-amount">38 940</span> ₽
+                        </div>
+                        <div class="auten-cart-item__params">
+                            <div class="auten-cart-item__color" style="background-color: #611e39;"></div>
+                            <div class="auten-select">
+                                <div class="auten-select__active">Не выбрано</div>
+                                <div class="auten-select__items">
+                                    <label class="auten-select-item"><input type="radio" name="size" value="S">S</label>
+                                    <label class="auten-select-item"><input type="radio" name="size" value="M">M</label>
+                                    <label class="auten-select-item"><input type="radio" name="size" value="L">L</label>
+                                </div>
+                            </div>
+                            <div class="auten-counter auten-cart-item__amount">
+                                <button type="button" class="auten-counter__button" data-count="-1">–</button>
+                                <input class="auten-counter__input" value="1" min="1">
+                                <button type="button" class="auten-counter__button" data-count="1">+</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
-
-            <div class="auten-promo">
-                <div class="auten-field auten-promo__field">
-                    <div class="auten-field__title">
-                        Промокод
+            <div class="auten-loyalty">
+                <div class="auten-promo">
+                    <div class="auten-field auten-promo__field">
+                        <div class="auten-field__title">
+                            Промокод
+                        </div>
+                        <input type="text" class="auten-field__input">
                     </div>
-                    <input type="text" class="auten-field__input">
+                    <button type="submit" class="auten-button inactive">
+                        Применить
+                    </button>
                 </div>
-                <button type="submit" class="auten-button inactive">
-                    Применить
-                </button>
-            </div>
 
-            <div class="auten-authorization-tip">
-                <a href="#">Авторизуйтесь</a>,
-                чтобы использовать накопленные баллы и<br>
-                учавствовать в программе лояльности
-            </div>
-
-
-            <div class="auten-bonuses" data-step-open="cart">
-                <div class="auten-bonuses__field">
-                    Бонусы <span class="auten-bonuses__amount">700</span>&nbspбонусов
+                <div class="auten-bonuses" data-step="cart">
+                    <div class="auten-bonuses__field">
+                        Бонусы <span class="auten-bonuses__amount">700</span>&nbspбонусов
+                    </div>
+                    <button type="submit" class="auten-button auten-bonuses__button ">
+                        Потратить
+                    </button>
+                    <div class="auten-bonuses__text" data-step="cart">
+                        За эту покупку на Ваш счёт будет зачислено <span>600</span>
+                        бонусов!
+                        <a href="#">
+                            Правила начисления и списания бонусов
+                        </a>
+                    </div>
                 </div>
-                <button type="submit" class="auten-button">
-                    Потратить
-                </button>
             </div>
 
 
-            <div class="auten-getting-bonuses" data-step-open="cart">
-                <div class="auten-getting-bonuses__info">
-                    За эту покупку на Ваш счёт будет зачислено <span class="auten-getting-bonuses__amount">600</span>
-                    бонусов!
-                </div>
-                <a class="auten-getting-bonuses__rules" href="#">
-                    Правила начисления и списания бонусов
-                </a>
-            </div>
             <form class="auten-order">
-                <fieldset class="auten-order-group" data-step-open="deliveryMethods">
+                <fieldset class="auten-order-group" data-step="deliveryMethods" data-step-open>
                     <div class="auten-order__title">Доставка</div>
                     <div class="auten-order-group__inner">
                         <div class="auten-field has-error">
@@ -207,13 +232,13 @@
                                     до 2-х дней, бесплатно
                                 </div>
                             </label>
-                            <button class="auten-button auten-mobile__button" data-step="deliveryMethod">
+                            <button class="auten-button auten-mobile__button" data-go-step="deliveryMethod">
                                 Продолжить
                             </button>
                         </div>
                     </div>
                 </fieldset>
-                <fieldset class="auten-order-group"  data-step-open="deliveryMethod">
+                <fieldset class="auten-order-group" data-step="deliveryMethod">
                     <div class="auten-order__title">Доставка</div>
                     <div class="auten-order-group__inner auten-order-group__grid">
                         <label class="auten-field" style="--column: 8;">
@@ -253,12 +278,13 @@
                             </div>
                             <input type="text" class="auten-field__input">
                         </label>
-                        <button type="submit" class="auten-button auten-mobile__button inactive" data-step="recipient">
+                        <button type="submit" class="auten-button auten-mobile__button inactive"
+                                data-go-step="recipient">
                             Продолжить
                         </button>
                     </div>
                 </fieldset>
-                <fieldset class="auten-order-group" data-step-open="recipient">
+                <fieldset class="auten-order-group" data-step="recipient">
                     <div class="auten-order__title">Получатель</div>
                     <div class="auten-order-group__inner auten-order-group__grid">
                         <label class="auten-field has-error" style="--column: 6;">
@@ -298,55 +324,55 @@
                 </fieldset>
             </form>
         </div>
-        <aside class="auten-order-aside" data-step-open="cart">
-            <div class="auten-order-aside__title">
-                Ваш заказ
-            </div>
-            <div class="auten-order-aside__inner">
-                <div class="auten-order-aside__field">
-                    Количество
-                    <div class="ms-total-cost"><span>2</span>&nbsp;товара</div>
+        <aside class="auten-order-aside" data-step="cart">
+                <div class="auten-order-aside__title">
+                    Ваш заказ
                 </div>
-                <div class="auten-order-aside__field">
-                    Всего
-                    <div class="ms-total-cost"><span>46 540</span>&nbsp;₽</div>
-                </div>
-                <div class="auten-order-aside__field">
-                    Скидка
-                    <div class="ms-total-cost"><span>0</span>&nbsp;₽</div>
-                </div>
-                <div class="auten-order-aside__field">
-                    Доставка
-                    <div class="ms-total-cost"><span>бесплатно</span></div>
-                </div>
-                <div class="auten-order-aside__field auten-order-aside__final">
-                    Итого
-                    <div class="ms-total-cost"><span>45 840</span>&nbsp;₽</div>
-                </div>
-            </div>
-            <div class="auten-pre-promo">
-                Ввести промокод
-            </div>
-            <div class="auten-promo auten-promo-mobile">
-                <div class="auten-field auten-promo__field">
-                    <div class="auten-field__title">
-                        Промокод
+                <div class="auten-order-aside__inner">
+                    <div class="auten-order-aside__field">
+                        Количество
+                        <div class="ms-total-cost"><span>2</span>&nbsp;товара</div>
                     </div>
-                    <input type="text" class="auten-field__input">
+                    <div class="auten-order-aside__field">
+                        Всего
+                        <div class="ms-total-cost"><span>46 540</span>&nbsp;₽</div>
+                    </div>
+                    <div class="auten-order-aside__field">
+                        Скидка
+                        <div class="ms-total-cost"><span>0</span>&nbsp;₽</div>
+                    </div>
+                    <div class="auten-order-aside__field">
+                        Доставка
+                        <div class="ms-total-cost"><span>бесплатно</span></div>
+                    </div>
+                    <div class="auten-order-aside__field auten-order-aside__final">
+                        Итого
+                        <div class="ms-total-cost"><span>45 840</span>&nbsp;₽</div>
+                    </div>
                 </div>
-                <button type="submit" class="auten-button">
-                    Применить
-                </button>
-            </div>
-            <button type="submit" class="auten-button" data-step="deliveryMethods">
+                <div class="auten-pre-promo">
+                    Ввести промокод
+                </div>
+                <div class="auten-promo auten-promo-mobile">
+                    <div class="auten-field auten-promo__field">
+                        <div class="auten-field__title">
+                            Промокод
+                        </div>
+                        <input type="text" class="auten-field__input">
+                    </div>
+                    <button type="submit" class="auten-button">
+                        Применить
+                    </button>
+                </div>
+                <button type="submit" class="auten-button" data-go-step="deliveryMethods">
                 <span class="auten-promo-button__pc">
                     Перейти к оплате
                 </span>
-                <div class="auten-promo-button__mobile">
-                    Оформить заказ (<span>46 540</span>&nbsp₽)
-                </div>
-            </button>
-        </aside>
+                    <div class="auten-promo-button__mobile">
+                        Оформить заказ (<span>46 540</span>&nbsp₽)
+                    </div>
+                </button>
+            </aside>
     </main>
 </div>
 
