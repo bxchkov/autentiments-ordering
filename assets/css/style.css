@@ -102,15 +102,17 @@ body {
 .auten-header {
   display: flex;
   align-items: center;
-  justify-content: center;
+  padding-left: 15px;
   width: 100vw;
   height: 172px;
   background: #f2f2f6;
   margin-bottom: 50px;
   font-size: 75px;
+  transition: all 0.3s ease;
 }
 @media (max-width: 1023px) {
   .auten-header {
+    font-size: 40px;
     margin-bottom: 10px;
     height: 60px;
   }
@@ -165,10 +167,11 @@ body {
   }
 }
 .auten-back {
-  left: 14px;
+  cursor: pointer;
+  left: 0;
 }
 .auten-help {
-  right: 14px;
+  right: 0;
 }
 @media (max-width: 1023px) {
   .auten-ordering {
@@ -324,7 +327,6 @@ body {
   grid-area: title;
   font-size: 16px;
   font-weight: 350;
-  white-space: nowrap;
   margin-bottom: 10px;
   transition: all 0.3s ease;
 }
@@ -378,18 +380,37 @@ body {
 }
 .auten-cart-item__params {
   grid-area: params;
-  display: flex;
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  grid-template-rows: auto;
   align-items: center;
   align-self: end;
   position: relative;
+}
+@media (max-width: 400px) {
+  .auten-cart-item__params {
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
+    grid-row-gap: 10px;
+    padding-top: 10px;
+  }
+  .auten-cart-item__params .auten-select {
+    margin-left: auto;
+    min-width: 78px;
+  }
 }
 .auten-cart-item__color {
   width: 21px;
   height: 20px;
   margin-right: 24px;
 }
-.auten-cart-item__select {
-  left: 45px;
+@media (max-width: 400px) {
+  .auten-cart-item__color {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 3;
+  }
 }
 .auten-cart-item__amount {
   display: flex;

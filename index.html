@@ -119,7 +119,8 @@
                                 <button type="button" class="auten-counter__button" data-count="1">+</button>
                             </div>
                         </div>
-                    </form>               <form class="auten-cart-item">
+                    </form>
+                    <form class="auten-cart-item">
                         <a class="auten-cart-item__image" href="#">
                             <img src="assets/images/palto.png" alt="">
                         </a>
@@ -207,8 +208,6 @@
                                 <div class="auten-select__active">Не выбрано</div>
                                 <div class="auten-select__items">
                                     <label class="auten-select-item"><input type="radio" name="size" value="S">S</label>
-                                    <label class="auten-select-item"><input type="radio" name="size" value="M">M</label>
-                                    <label class="auten-select-item"><input type="radio" name="size" value="L">L</label>
                                 </div>
                             </div>
                             <div class="auten-counter auten-cart-item__amount">
@@ -330,7 +329,8 @@
                                     до 2-х дней, бесплатно
                                 </div>
                             </label>
-                            <button class="auten-button auten-mobile__button" data-go-step="deliveryMethod">
+                            <button type="button" class="auten-button auten-mobile__button"
+                                    data-go-step="deliveryMethod">
                                 Продолжить
                             </button>
                         </div>
@@ -376,7 +376,7 @@
                             </div>
                             <input type="text" class="auten-field__input">
                         </label>
-                        <button type="submit" class="auten-button auten-mobile__button inactive"
+                        <button type="button" class="auten-button auten-mobile__button inactive"
                                 data-go-step="recipient">
                             Продолжить
                         </button>
@@ -423,57 +423,56 @@
             </form>
         </div>
         <aside class="auten-order-aside" data-step="cart">
-                <div class="auten-order-aside__title">
-                    Ваш заказ
+            <div class="auten-order-aside__title">
+                Ваш заказ
+            </div>
+            <div class="auten-order-aside__inner">
+                <div class="auten-order-aside__field">
+                    Количество
+                    <div class="ms-total-cost"><span>2</span>&nbsp;товара</div>
                 </div>
-                <div class="auten-order-aside__inner">
-                    <div class="auten-order-aside__field">
-                        Количество
-                        <div class="ms-total-cost"><span>2</span>&nbsp;товара</div>
-                    </div>
-                    <div class="auten-order-aside__field">
-                        Всего
-                        <div class="ms-total-cost"><span>46 540</span>&nbsp;₽</div>
-                    </div>
-                    <div class="auten-order-aside__field">
-                        Скидка
-                        <div class="ms-total-cost"><span>0</span>&nbsp;₽</div>
-                    </div>
-                    <div class="auten-order-aside__field">
-                        Доставка
-                        <div class="ms-total-cost"><span>бесплатно</span></div>
-                    </div>
-                    <div class="auten-order-aside__field auten-order-aside__final">
-                        Итого
-                        <div class="ms-total-cost"><span>45 840</span>&nbsp;₽</div>
-                    </div>
+                <div class="auten-order-aside__field">
+                    Всего
+                    <div class="ms-total-cost"><span>46 540</span>&nbsp;₽</div>
                 </div>
-                <div class="auten-pre-promo">
-                    Ввести промокод
+                <div class="auten-order-aside__field">
+                    Скидка
+                    <div class="ms-total-cost"><span>0</span>&nbsp;₽</div>
                 </div>
-                <div class="auten-promo auten-promo-mobile">
-                    <div class="auten-field auten-promo__field">
-                        <div class="auten-field__title">
-                            Промокод
-                        </div>
-                        <input type="text" class="auten-field__input">
+                <div class="auten-order-aside__field">
+                    Доставка
+                    <div class="ms-total-cost"><span>бесплатно</span></div>
+                </div>
+                <div class="auten-order-aside__field auten-order-aside__final">
+                    Итого
+                    <div class="ms-total-cost"><span>45 840</span>&nbsp;₽</div>
+                </div>
+            </div>
+            <div class="auten-pre-promo">
+                Ввести промокод
+            </div>
+            <div class="auten-promo auten-promo-mobile">
+                <div class="auten-field auten-promo__field">
+                    <div class="auten-field__title">
+                        Промокод
                     </div>
-                    <button type="submit" class="auten-button">
-                        Применить
-                    </button>
+                    <input type="text" class="auten-field__input">
                 </div>
-                <button type="submit" class="auten-button" data-go-step="deliveryMethods">
+                <button type="submit" class="auten-button">
+                    Применить
+                </button>
+            </div>
+            <button type="submit" class="auten-button" data-go-step="deliveryMethods">
                 <span class="auten-promo-button__pc">
                     Перейти к оплате
                 </span>
-                    <div class="auten-promo-button__mobile">
-                        Оформить заказ (<span>46 540</span>&nbsp₽)
-                    </div>
-                </button>
-            </aside>
+                <div class="auten-promo-button__mobile">
+                    Оформить заказ (<span>46 540</span>&nbsp₽)
+                </div>
+            </button>
+        </aside>
     </main>
 </div>
-
 <script src="assets/js/script.js" defer></script>
 </body>
 </html>

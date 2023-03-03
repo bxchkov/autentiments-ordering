@@ -27,9 +27,6 @@
 // обнуление
 @import "nulling.scss";
 
-// миксины
-@import "mixins.scss";
-
 body {
   background-color: white;
   color: black;
@@ -47,14 +44,16 @@ body {
   &-header {
     display: flex;
     align-items: center;
-    justify-content: center;
+    padding-left: 15px;
     width: 100vw;
     height: 172px;
     background: #f2f2f6;
     margin-bottom: 50px;
     font-size: 75px;
+    transition: all .3s ease;
 
     @media (max-width: 1023px) {
+      font-size: 40px;
       margin-bottom: 10px;
       height: 60px;
     }
@@ -109,16 +108,17 @@ body {
   }
 
   &-back {
-    left: 14px;
+    cursor: pointer;
+    left: 0;
   }
 
   &-help {
-    right: 14px;
+    right: 0;
   }
 
   &-ordering {
     @media (max-width: 1023px) {
-       flex: 1 1 auto;
+      flex: 1 1 auto;
       display: flex;
       flex-direction: column;
     }
@@ -289,7 +289,6 @@ body {
       grid-area: title;
       font-size: 16px;
       font-weight: 350;
-      white-space: nowrap;
       margin-bottom: 10px;
       transition: all .3s ease;
 
@@ -343,20 +342,37 @@ body {
 
     &__params {
       grid-area: params;
-      display: flex;
+      display: grid;
+      grid-template-columns: auto auto 1fr;
+      grid-template-rows: auto;
       align-items: center;
       align-self: end;
       position: relative;
+
+      @media (max-width: 400px) {
+        grid-template-columns: auto 1fr;
+        grid-template-rows: auto 1fr;
+        grid-row-gap: 10px;
+        padding-top: 10px;
+
+        .auten-select {
+          margin-left: auto;
+          min-width: 78px;
+        }
+      }
     }
 
     &__color {
       width: 21px;
       height: 20px;
       margin-right: 24px;
-    }
 
-    &__select {
-      left: 45px;
+      @media (max-width: 400px) {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 3;
+      }
     }
 
     &__amount {

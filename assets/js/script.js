@@ -58,10 +58,12 @@ document.addEventListener("radio-active", e => {
     active.innerHTML = item.innerText;
     select.classList.remove('active');
 })
+
 // при деактивации радио удаляем checked
 document.addEventListener("radio-inactive", e => {
     e.target.closest(".auten-select-item")?.classList.remove("checked");
 })
+
 // при клике вне .auten-select закрываем все
 document.addEventListener("click", e => {
     if (e.target.closest(`.auten-select`))
@@ -70,6 +72,7 @@ document.addEventListener("click", e => {
         item.classList.remove("active")
     })
 })
+
 // при клике на .auten-select__active открываем/закрываем
 document.addEventListener("click", e => {
     let item = e.target.closest(`.auten-select__active`);
@@ -80,6 +83,7 @@ document.addEventListener("click", e => {
     })
     item.closest(`.auten-select`).classList.add("active");
 })
+
 // при загрузке страницы устанавливаем дефолтные значения
 document.querySelectorAll(`.auten-select`).forEach(select => {
     let checked = select.querySelector(`.auten-select-item input:checked`);
@@ -96,12 +100,11 @@ document.querySelectorAll(`.auten-select`).forEach(select => {
 })
 
 //fields
-
 document.addEventListener("focusin", e => {
     let field = e.target.closest(".auten-field");
     if (!field)
         return;
-    let fieldValue = field.querySelector(".auten-field__input").value;
+    //let fieldValue = field.querySelector(".auten-field__input").value;
     field.classList.add("focus");
 })
 document.addEventListener("focusout", e => {
@@ -113,36 +116,47 @@ document.addEventListener("focusout", e => {
 
 // изменение ипнута
 document.addEventListener("input", e => {
-    let field = e.target.closest(".auten-field");
+    let field = e.target.closest(".auten-field.has-error");
     if (!field)
         return
     field.classList.remove("has-error");
 })
 
 
-// steps
-// по дефолту прячем все элемы, имеющие степ состояния
-function goStep(stepAtr) {
-    if (!stepAtr)
-        return;
-    let steps = document.querySelectorAll(`[data-step][data-step-open]`);
-    steps.forEach(step => {
-        step.removeAttribute("data-step-open");
-    })
-    let stepsOn = document.querySelectorAll(`[data-step="${stepAtr}"]`);
-    stepsOn.forEach(step => {
-        step.setAttribute("data-step-open", "");
-    })
-
-}
-
-goStep("cart");
-
 // берем у нажатой с аттрибутом кнопки значение аттрибута и прокидываем step
 document.addEventListener("click", e => {
     let button = e.target.closest(`[data-go-step]`);
     if (button?.dataset.goStep) {
-        goStep(button.dataset.goStep);
+        location.hash = button?.dataset.goStep;
     }
 })
 
+// кнопка назад
+document.addEventListener("click", e=> {
+    let backButton = e.target.closest(".auten-back");
+    if (!backButton)
+        return;
+    window.history.back();
+})
+// назад-вперед браузера
+window.addEventListener("popstate", e=> {
+    let id = location.hash?.replace("#","");
+    if(!id)
+        id = "cart"
+    let steps = document.querySelectorAll(`[data-step][data-step-open]`);
+    steps.forEach(step => {
+        step.removeAttribute("data-step-open");
+    })
+    let stepsOn = document.querySelectorAll(`[data-step="${id}"]`);
+    stepsOn.forEach(step => {
+        step.setAttribute("data-step-open", true);
+    })
+})
+
+// перезагрузка страницы, отображает элементы с хэша ссылки или же загружает элементы по умолчанию (cart)
+window.addEventListener("DOMContentLoaded", e => {
+    if (!location.hash) {
+        location.hash = "cart";
+    }
+    window.dispatchEvent(new PopStateEvent("popstate"));
+})
